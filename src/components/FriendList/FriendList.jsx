@@ -1,11 +1,16 @@
+import css from './FriendList.module.css';
+import FriendListItem from '../FriendListItem/FriendListItem.jsx';
+
 function FriendList({ friends }) {
   return (
-    <ul>
-      {friends.map(friend => (
+    <ul className={css['friend-list']}>
+      {friends.map((friend) => (
         <li key={friend.id}>
-          <span>{friend.isOnline ? 'Online' : 'Offline'}</span>
-          <img src={friend.avatar} alt={friend.name} />
-          <p>{friend.name}</p>
+          <FriendListItem
+            avatar={friend.avatar}
+            name={friend.name}
+            isOnline={friend.isOnline}
+          />
         </li>
       ))}
     </ul>
